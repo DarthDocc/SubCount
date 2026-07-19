@@ -1,12 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap");
+@font-face {
+  font-family: "Cooper Black";
+  src: url("fonts/CooperBlack.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root{
   --label-color:#ffffff;
   --count-color:#ffffff;
   --glow-color:#b56cff;
-  --font-family:"Cormorant Garamond",serif;
+  --font-family:"Cooper Black", serif;
 
-  --label-size:34px;
+  --label-size:32px;
   --count-size:68px;
 }
 
@@ -40,35 +45,35 @@ body{
   justify-content:center;
   align-items:center;
   text-align:center;
-  gap:2px;
+  gap:4px;
   padding:8px;
 }
 
 .label{
   color:var(--label-color);
   font-size:var(--label-size);
-  font-weight:700;
-  letter-spacing:4px;
+  font-weight:normal;
   line-height:1;
+  letter-spacing:2px;
 
   text-shadow:
     0 0 2px var(--glow-color),
-    0 0 8px var(--glow-color),
-    0 0 14px rgba(181,108,255,.5);
+    0 0 6px var(--glow-color),
+    0 0 12px rgba(181,108,255,.45);
 }
 
 .count{
   min-width:180px;
   color:var(--count-color);
   font-size:var(--count-size);
-  font-weight:700;
+  font-weight:normal;
   line-height:1;
-  letter-spacing:2px;
+  letter-spacing:1px;
 
   text-shadow:
     0 0 3px var(--glow-color),
-    0 0 10px var(--glow-color),
-    0 0 18px rgba(181,108,255,.45);
+    0 0 8px var(--glow-color),
+    0 0 16px rgba(181,108,255,.45);
 
   transition:
     transform .18s ease,
@@ -76,7 +81,7 @@ body{
 }
 
 .count.bump{
-  transform:scale(1.05);
+  transform:scale(1.06);
   opacity:.95;
 }
 
