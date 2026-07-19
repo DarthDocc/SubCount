@@ -1,10 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap");
+@font-face {
+  font-family: "Minecraft Seven";
+  src: url("fonts/MinecraftSeven.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root{
   --label-color:#ffffff;
   --count-color:#ffffff;
   --glow-color:#b56cff;
-  --font-family:"Orbitron",sans-serif;
+  --font-family:"Minecraft Seven", sans-serif;
 
   --label-size:30px;
   --count-size:64px;
@@ -12,13 +17,11 @@
 
 *{
   box-sizing:border-box;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:none;
+  -moz-osx-font-smoothing:auto;
 }
 
-html,
-body{
+html,body{
   width:100%;
   height:100%;
   margin:0;
@@ -47,20 +50,37 @@ body{
 .label{
   color:var(--label-color);
   font-size:var(--label-size);
-  font-weight:700;
-  letter-spacing:3px;
   line-height:1;
+  letter-spacing:1px;
 
   text-shadow:
     0 0 2px var(--glow-color),
-    0 0 8px var(--glow-color);
+    0 0 6px var(--glow-color);
 }
 
 .count{
   min-width:180px;
   color:var(--count-color);
   font-size:var(--count-size);
-  font-weight:800;
+  line-height:1;
+  letter-spacing:1px;
+
+  text-shadow:
+    0 0 3px var(--glow-color),
+    0 0 8px var(--glow-color);
+
+  transition:transform .18s ease, opacity .18s ease;
+}
+
+.count.bump{
+  transform:scale(1.06);
+}
+
+.status,
+#status,
+body.debug .status{
+  display:none !important;
+}  font-weight:800;
   letter-spacing:2px;
   line-height:1;
 
