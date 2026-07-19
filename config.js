@@ -1,0 +1,19 @@
+window.SUB_WIDGET_CONFIG = {
+  // Replace this after deploying the Cloudflare Worker.
+  workerUrl: "https://YOUR-WORKER.YOUR-SUBDOMAIN.workers.dev",
+
+  // Unique channel name used by the Worker.
+  channel: "ledyym",
+
+  label: "TOTAL SUBS",
+  pollEveryMs: 5000,
+  fallbackValue: 8869,
+  debug: true,
+
+  labelColor: "#ffffff",
+  countColor: "#ffffff",
+  glowColor: "#b56cff",
+  labelSize: 30,
+  countSize: 60,
+  glowStrength: 1
+};
