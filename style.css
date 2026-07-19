@@ -1,27 +1,24 @@
-@font-face {
-  font-family: "Minecraft Seven";
-  src: url("fonts/MinecraftSeven.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap");
 
 :root{
   --label-color:#ffffff;
   --count-color:#ffffff;
   --glow-color:#b56cff;
-  --font-family:"Minecraft Seven", sans-serif;
+  --font-family:"Cormorant Garamond",serif;
 
-  --label-size:30px;
-  --count-size:64px;
+  --label-size:34px;
+  --count-size:68px;
 }
 
 *{
   box-sizing:border-box;
-  -webkit-font-smoothing:none;
-  -moz-osx-font-smoothing:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
 }
 
-html,body{
+html,
+body{
   width:100%;
   height:100%;
   margin:0;
@@ -43,50 +40,35 @@ body{
   justify-content:center;
   align-items:center;
   text-align:center;
-  gap:6px;
+  gap:2px;
   padding:8px;
 }
 
 .label{
   color:var(--label-color);
   font-size:var(--label-size);
+  font-weight:700;
+  letter-spacing:4px;
   line-height:1;
-  letter-spacing:1px;
 
   text-shadow:
     0 0 2px var(--glow-color),
-    0 0 6px var(--glow-color);
+    0 0 8px var(--glow-color),
+    0 0 14px rgba(181,108,255,.5);
 }
 
 .count{
   min-width:180px;
   color:var(--count-color);
   font-size:var(--count-size);
+  font-weight:700;
   line-height:1;
-  letter-spacing:1px;
-
-  text-shadow:
-    0 0 3px var(--glow-color),
-    0 0 8px var(--glow-color);
-
-  transition:transform .18s ease, opacity .18s ease;
-}
-
-.count.bump{
-  transform:scale(1.06);
-}
-
-.status,
-#status,
-body.debug .status{
-  display:none !important;
-}  font-weight:800;
   letter-spacing:2px;
-  line-height:1;
 
   text-shadow:
     0 0 3px var(--glow-color),
-    0 0 10px var(--glow-color);
+    0 0 10px var(--glow-color),
+    0 0 18px rgba(181,108,255,.45);
 
   transition:
     transform .18s ease,
@@ -94,27 +76,8 @@ body.debug .status{
 }
 
 .count.bump{
-  transform:scale(1.06);
-  opacity:.92;
-}
-
-.status,
-#status,
-body.debug .status{
-  display:none !important;
-}}
-
-.count.bump{
-  transform:scale(1.1);
-  opacity:.82;
-}
-
-.status{
-  display:none;
-  margin-top:6px;
-  color:rgba(255,255,255,.8);
-  font:12px/1.2 Arial,sans-serif;
-  text-shadow:0 1px 2px #000;
+  transform:scale(1.05);
+  opacity:.95;
 }
 
 .status,
