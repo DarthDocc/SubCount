@@ -1,18 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap");
 
 :root{
   --label-color:#ffffff;
   --count-color:#ffffff;
   --glow-color:#b56cff;
-  --font-family:"Pixelify Sans",sans-serif;
+  --font-family:"Orbitron",sans-serif;
+
   --label-size:30px;
-  --count-size:60px;
-  --glow-strength:1;
+  --count-size:64px;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
 
-html,body{
+html,
+body{
   width:100%;
   height:100%;
   margin:0;
@@ -34,7 +40,7 @@ body{
   justify-content:center;
   align-items:center;
   text-align:center;
-  gap:4px;
+  gap:6px;
   padding:8px;
 }
 
@@ -42,25 +48,41 @@ body{
   color:var(--label-color);
   font-size:var(--label-size);
   font-weight:700;
+  letter-spacing:3px;
   line-height:1;
+
   text-shadow:
-    0 0 calc(5px * var(--glow-strength)) var(--glow-color),
-    0 0 calc(10px * var(--glow-strength)) var(--glow-color),
-    0 0 calc(20px * var(--glow-strength)) var(--glow-color);
+    0 0 2px var(--glow-color),
+    0 0 8px var(--glow-color);
 }
 
 .count{
-  min-width:170px;
+  min-width:180px;
   color:var(--count-color);
   font-size:var(--count-size);
-  font-weight:700;
+  font-weight:800;
+  letter-spacing:2px;
   line-height:1;
+
   text-shadow:
-    0 0 calc(5px * var(--glow-strength)) var(--glow-color),
-    0 0 calc(10px * var(--glow-strength)) var(--glow-color),
-    0 0 calc(24px * var(--glow-strength)) var(--glow-color);
-  transition:transform .18s ease,opacity .18s ease;
+    0 0 3px var(--glow-color),
+    0 0 10px var(--glow-color);
+
+  transition:
+    transform .18s ease,
+    opacity .18s ease;
 }
+
+.count.bump{
+  transform:scale(1.06);
+  opacity:.92;
+}
+
+.status,
+#status,
+body.debug .status{
+  display:none !important;
+}}
 
 .count.bump{
   transform:scale(1.1);
