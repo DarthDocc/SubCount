@@ -1,6 +1,6 @@
 window.SUB_WIDGET_CONFIG = {
   // Replace this after deploying the Cloudflare Worker.
-  workerUrl: "https://polished-silence-32bf.forrest-inman89.workers.dev",,
+  workerUrl: "https://polished-silence-32bf.forrest-inman89.workers.dev",
 
   // Unique channel name used by the Worker.
   channel: "ledyym",
