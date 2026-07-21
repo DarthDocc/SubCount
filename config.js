@@ -7,7 +7,7 @@ window.SUB_WIDGET_CONFIG = {
 
   label: "TOTAL SUBS",
   pollEveryMs: 5000,
-  fallbackValue: 9189,
+  fallbackValue: 9560,
   debug: true,
 
   labelColor: "#ffffff",
