@@ -1,22 +1,17 @@
-/*
-Paste the SEND function into the custom JavaScript area of the BotRix
-subscription alert, then call it when the alert fires.
+onst WORKER_URL =
+  "https://polished-silence-32bf.forrest-inman89.workers.dev";
 
-You MUST replace:
-  WORKER_URL
-  WEBHOOK_SECRET
-  CHANNEL
-
-The exact BotRix event variable names can differ. Use the alert's documented
-amount variable where indicated below.
-*/
-
-const WORKER_URL = "https://YOUR-WORKER.YOUR-SUBDOMAIN.workers.dev";
-const WEBHOOK_SECRET = "REPLACE_WITH_A_LONG_RANDOM_SECRET";
+const WEBHOOK_SECRET = "LedyyM4133DarthDocc";
 const CHANNEL = "ledyym";
 
-async function sendSubscriberEvent(amount = 1) {
-  const safeAmount = Math.max(1, Number.parseInt(amount, 10) || 1);
+async function sendSubscriberEvent(amount) {
+  const safeAmount = Math.max(
+    1,
+    Math.min(500, Number.parseInt(amount, 10) || 1)
+  );
+
+  console.log("[SubCount] BotRix amount:", amount);
+  console.log("[SubCount] Sending amount:", safeAmount);
 
   try {
     const response = await fetch(`${WORKER_URL}/event`, {
@@ -31,25 +26,22 @@ async function sendSubscriberEvent(amount = 1) {
       })
     });
 
+    const result = await response.json();
+
     if (!response.ok) {
-      throw new Error(`Webhook failed with HTTP ${response.status}`);
+      throw new Error(
+        result.error || `Webhook failed with HTTP ${response.status}`
+      );
     }
 
-    console.log("Subscriber count updated", await response.json());
+    console.log("[SubCount] Counter updated:", result);
   } catch (error) {
-    console.error("Subscriber webhook error", error);
+    console.error("[SubCount] Update failed:", error);
   }
 }
 
 /*
-Examples:
-
-Regular subscription:
-sendSubscriberEvent(1);
-
-Five gifted subscriptions:
-sendSubscriberEvent(5);
-
-Replace the number with BotRix's actual event amount variable after confirming
-the variable name in its alert editor.
+BotRix replaces {amount} with the subscription amount
+when this alert runs.
 */
+sendSubscriberEvent("{amount}");
